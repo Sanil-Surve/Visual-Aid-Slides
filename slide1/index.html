@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WelTone Animation</title>
+    <link href="styles/global.css" rel="stylesheet" />
+  </head>
+  <style>
+    @keyframes slideInRight {
+      0% {
+        transform: translateX(100px);
+        /* opacity: 0; */
+      }
+      100% {
+        transform: translateX(0);
+        /* opacity: 1; */
+      }
+    }
+
+    @keyframes dropIn {
+      0% {
+        transform: translateY(-200px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .drop-in {
+      animation: dropIn 1s ease-out forwards;
+      animation-delay: 1s;
+      opacity: 0;
+    }
+
+    .slide-right {
+      animation: slideInRight 2s ease-out forwards;
+      /* opacity: 0; */
+    }
+  </style>
+  <body>
+    <div class="d-flex p-2 w-auto h-auto">
+      <div class="d-flex flex-row justify-content-evenly">
+        <div
+          class="col-sm-3 d-flex flex-column align-items-md-center gap-4 mt-4 mb-2"
+          style="position: relative; top: 85px; left: -101px; width: 47%"
+        >
+          <a onclick="restartAnimations()">
+            <img
+              id="one"
+              src="lpgo.png"
+              class="drop-in img-fluid"
+              alt="Boost Immunity"
+            />
+          </a>
+          <img
+            id="two"
+            src="tagline.png"
+            class="slide-left slide-delay-2 img-fluid"
+            style="margin-left: 140px; width: 54%"
+            alt="Early Recovery"
+          />
+          <img
+            id="three"
+            src="line.png"
+            class="slide-left slide-delay-3 img-fluid"
+            alt="Catch-Up Growth"
+            style="position: absolute; width: 95%; top: 260px"
+          />
+
+          <!-- <h3 style="position: absolute; top: 287px; width: 80%; left: 123px">
+            In partnership with
+            <a
+              style="color: #004030; text-decoration: underline"
+              data-bs-toggle="modal"
+              data-bs-target="#websiteModal"
+              >RogaLife. USA</a
+            >
+          </h3> -->
+
+          <h3 style="position: absolute; top: 287px; width: 80%; left: 123px">
+            In partnership with
+            <a
+              href="#"
+              style="
+                color: #004030;
+                text-decoration: underline;
+                cursor: pointer;
+              "
+            >
+              RogaLife. USA
+            </a>
+          </h3>
+
+          <img
+            src="4.png"
+            alt="Image 1"
+            style="position: absolute; top: 157%; left: -7%; width: 25%"
+            class="zoom-animation slide-delay-1"
+          />
+          <img
+            src="2.png"
+            alt="Image 2"
+            style="position: absolute; top: 182%; left: 19%; width: 25%"
+            class="zoom-animation slide-delay-2"
+          />
+          <img
+            src="6.png"
+            alt="Image 3"
+            style="position: absolute; top: 159%; left: 44%; width: 25%"
+            class="zoom-animation slide-delay-3"
+          />
+          <img
+            src="1.png"
+            alt="Image 4"
+            style="position: absolute; top: 181%; left: 70%; width: 25%"
+            class="zoom-animation slide-delay-4"
+          />
+          <img
+            src="3.png"
+            alt="Image 5"
+            style="position: absolute; left: 95%; top: 161%; width: 25%"
+            class="zoom-animation slide-delay-5"
+          />
+
+          <img
+            src="greenpatti.png"
+            alt="bottom bar"
+            style="position: absolute; left: -12%; bottom: -485px; width: 200%"
+          />
+
+          <h3
+            style="
+              position: absolute;
+              left: -6%;
+              top: 263%;
+              width: 30%;
+              color: white;
+              font-size: larger;
+            "
+          >
+            AS SEEN IN:
+          </h3>
+
+          <img
+            src="ga.png"
+            alt="bottom bar"
+            style="position: absolute; left: 19%; top: 264%; width: 20%"
+          />
+
+          <img
+            src="Picture1.png"
+            alt="bottom bar"
+            style="position: absolute; left: 50%; top: 260%; width: 20%"
+          />
+          <img
+            src="Picture2.png"
+            alt="bottom bar"
+            style="position: absolute; left: 73%; top: 260%; width: 20%"
+          />
+          <img
+            src="Picture3.png"
+            alt="bottom bar"
+            style="position: absolute; left: 100%; top: 258%; width: 20%"
+          />
+        </div>
+
+        <div>
+          <img
+            id="three"
+            src="zikzak line.png"
+            class="img-fluid"
+            alt="Catch-Up Growth"
+            style="
+              position: absolute;
+              width: 63%;
+              top: 87%;
+              left: 0%;
+              height: 100px;
+            "
+          />
+        </div>
+
+        <div class="text-center d-flex align-items-end justify-content-center">
+          <div>
+            <img
+              id="logo"
+              src="model.png"
+              alt="WelTone Logo"
+              style="
+                position: absolute;
+                top: 12%;
+                left: 55%;
+                width: 48.5%;
+                z-index: 5;
+              "
+              class="slide-right"
+            />
+            <!-- <img
+              id="rays"
+              src=""
+              alt="Rays Background"
+              class="rays-img rise-up"
+              style="
+                position: absolute;
+                top: -1px;
+                left: -110px;
+                width: 539px;
+                height: 426px;
+                z-index: 1;
+              "
+            />
+            <a onclick="restartAnimations()">
+              <img
+                id="boy"
+                src="assets/boy.png"
+                alt="WelTone Warrior"
+                class="character-img drop-in"
+                style="
+                  position: relative;
+                  z-index: 1;
+                  top: -22px;
+                  left: -10px;
+                  height: 503px;
+                  width: 258px;
+                "
+              />
+            </a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="modal fade" id="websiteModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Roga.AI</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <iframe
+              src="http://31.97.202.251:3000/proxy"
+              title="Embedded Website"
+              style="
+                width: 100%;
+                height: 80vh;
+                border: 2px solid #dee2e6;
+                border-radius: 0.5rem;
+              "
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <script src="styles/bootstrap.bundle.min.js"></script>
+
+    <script>
+      function restartAnimations() {
+        // Get all elements with animation classes
+        const animatedElements = document.querySelectorAll(
+          '[class*="slide-"], .zoom-animation, .rise-up, .drop-in'
+        );
+
+        // Store original classes for each element
+        const originalClasses = new Map();
+        animatedElements.forEach((element) => {
+          originalClasses.set(element, Array.from(element.classList));
+        });
+
+        // Remove animation classes and force reflow
+        animatedElements.forEach((element) => {
+          const classesToRemove = Array.from(element.classList).filter(
+            (className) =>
+              className.startsWith("slide-") ||
+              className === "zoom-animation" ||
+              className === "rise-up" ||
+              className === "drop-in"
+          );
+          element.classList.remove(...classesToRemove);
+          void element.offsetWidth; // Trigger reflow
+        });
+
+        // Re-add original animation classes
+        setTimeout(() => {
+          animatedElements.forEach((element) => {
+            element.classList.add(...originalClasses.get(element));
+          });
+        }, 50);
+      }
+    </script>
+  </body>
+</html>
