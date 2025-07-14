@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roga</title>
+    <link rel="stylesheet" href="styles/global.css" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        background: url("goroga.jpg") no-repeat center center fixed;
+        background-size: cover;
+      }
+    </style>
+  </head>
+  <body data-bs-toggle="modal" data-bs-target="#websiteModal">
+    <div class="modal fade" id="websiteModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Roga</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <iframe
+              src="http://31.97.202.251:3000/proxy"
+              title="Embedded Website"
+              style="
+                width: 100%;
+                height: 80vh;
+                border: 2px solid #dee2e6;
+                border-radius: 0.5rem;
+              "
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="styles/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
