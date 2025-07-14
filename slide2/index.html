@@ -61,25 +61,32 @@
 
         <div class="d-flex flex-column align-items-end justify-content-end">
           <div style="position: relative; top: -158px; left: -200px">
-            <img
-              src="intro.png"
-              alt="WelTone Logo"
-              style="
-                position: absolute;
-                top: -400px;
-                left: 478px;
-                width: 513px;
-                z-index: 5;
-              "
-              class="slide-right"
-            />
+            <a onclick="restartAnimation()">
+              <img
+                src="intro.png"
+                alt="WelTone Logo"
+                style="
+                  position: absolute;
+                  top: -400px;
+                  left: 478px;
+                  width: 513px;
+                  z-index: 5;
+                "
+                class="slide-right"
+              />
 
-            <img
-              src="intro2.png"
-              alt="WelTone Logo"
-              style="position: absolute; top: -250px; left: 500px; width: 400px"
-              class="slide-right"
-            />
+              <img
+                src="intro2.png"
+                alt="WelTone Logo"
+                style="
+                  position: absolute;
+                  top: -250px;
+                  left: 500px;
+                  width: 400px;
+                "
+                class="slide-right"
+              />
+            </a>
           </div>
         </div>
       </div>
@@ -87,27 +94,30 @@
     <script src="styles/bootstrap.bundle.min.js"></script>
     <script>
       function restartAnimation() {
-        // Get all slide-left animated elements
-        const slideElements = document.querySelectorAll(".slide-left");
+        // Get all elements with slide and zoom animations
+        const animatedElements = document.querySelectorAll(
+          ".slide-left, .slide-right, .zoom-animation"
+        );
 
-        // Remove animation classes and force reflow
-        slideElements.forEach((element) => {
-          // Store original classes before removing
-          const originalClasses = Array.from(element.classList).filter((cls) =>
-            cls.startsWith("slide-")
-          );
+        animatedElements.forEach((element) => {
+          // Determine applicable animation classes
+          const animationClasses = [];
+          if (element.classList.contains("slide-left"))
+            animationClasses.push("slide-left");
+          if (element.classList.contains("slide-right"))
+            animationClasses.push("slide-right");
+          if (element.classList.contains("zoom-animation"))
+            animationClasses.push("zoom-animation");
 
-          element.classList.remove(
-            "slide-left",
-            "slide-delay-1",
-            "slide-delay-2",
-            "slide-delay-3"
-          );
-          void element.offsetWidth; // Trigger reflow
+          // Remove animation classes
+          element.classList.remove(...animationClasses);
 
-          // Restore original classes after a short delay
+          // Trigger reflow
+          void element.offsetWidth;
+
+          // Re-add animation classes after delay
           setTimeout(() => {
-            element.classList.add(...originalClasses);
+            element.classList.add(...animationClasses);
           }, 50);
         });
       }
