@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slide 3</title>
+    <link href="styles/global.css" rel="stylesheet" />
+    <style>
+      html,
+      body {
+        width: 100vw;
+        height: 100vh;
+      }
+
+      body {
+        background-image: url("assets/science-background-2.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      /* @keyframes slideInRight {
+        0% {
+          transform: translateX(100px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      } */
+      /* Animation Keyframes */
+      @keyframes slideInLeft {
+        0% {
+          transform: translateX(-100px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes dropIn {
+        0% {
+          transform: translateY(-200px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes zoomInOut {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .zoom-animation {
+        animation: zoomInOut 2s ease-in-out infinite;
+      }
+
+      .slide-left {
+        animation: slideInLeft 1s ease-out forwards, fadeIn 5s ease-in forwards;
+        opacity: 0;
+      }
+
+      .drop-in {
+        animation: dropIn 1s ease-out forwards;
+        animation-delay: 1s;
+        opacity: 0;
+      }
+
+      /* .fade-in {
+        animation: fadeIn 5s ease-in forwards;
+      } */
+
+      .slide-right {
+        animation: slideInRight 2s ease-out forwards, fadeIn 2s ease-in forwards;
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="d-flex p-2 w-auto h-auto">
+      <div class="d-flex flex-row justify-content-evenly">
+        <div>
+          <img
+            src="assets/science.png"
+            alt="science"
+            style="
+              position: absolute;
+              top: 15%;
+              left: 5%;
+              width: 50%;
+              height: 500px;
+            "
+            class="drop-in"
+          />
+        </div>
+
+        <div>
+          <img
+            src="assets/sciencebacked.png"
+            alt=""
+            style="
+              position: absolute;
+              top: 19%;
+              left: 51%;
+              height: 66%;
+              width: 50%;
+            "
+            class="slide-right"
+          />
+        </div>
+      </div>
+    </div>
+    <script src="styles/bootstrap.bundle.min.js"></script>
+    <script>
+      function restartAnimation() {
+        // Get all slide-left animated elements
+        const slideElements = document.querySelectorAll(".slide-left");
+
+        // Remove animation classes and force reflow
+        slideElements.forEach((element) => {
+          // Store original classes before removing
+          const originalClasses = Array.from(element.classList).filter((cls) =>
+            cls.startsWith("slide-")
+          );
+
+          element.classList.remove(
+            "slide-left",
+            "slide-delay-1",
+            "slide-delay-2",
+            "slide-delay-3"
+          );
+          void element.offsetWidth; // Trigger reflow
+
+          // Restore original classes after a short delay
+          setTimeout(() => {
+            element.classList.add(...originalClasses);
+          }, 50);
+        });
+      }
+    </script>
+  </body>
+</html>
