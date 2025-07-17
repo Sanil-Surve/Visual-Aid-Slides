@@ -9,11 +9,12 @@
   <style>
     body {
       width: 100vw;
-      height: 100vh;
+      height: 116vh;
       background-image: url("background.jpg");
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
+      overflow-y: scroll;
     }
     @keyframes slideInRight {
       0% {
@@ -75,10 +76,10 @@
             src="line.png"
             class="slide-left slide-delay-3 img-fluid"
             alt="Catch-Up Growth"
-            style="position: absolute; width: 95%; top: 260px"
+            style="position: absolute; width: 95%; top: 268px"
           />
 
-          <!-- <h3 style="position: absolute; top: 287px; width: 80%; left: 123px">
+          <h3 style="position: absolute; top: 287px; width: 80%; left: 123px">
             In partnership with
             <a
               style="color: #004030; text-decoration: underline"
@@ -86,9 +87,9 @@
               data-bs-target="#websiteModal"
               >RogaLife. USA</a
             >
-          </h3> -->
+          </h3>
 
-          <h3 style="position: absolute; top: 287px; width: 80%; left: 123px">
+          <!-- <h3 style="position: absolute; top: 287px; width: 80%; left: 123px">
             In partnership with
             <a
               href="#"
@@ -102,7 +103,7 @@
             >
               RogaLife. USA
             </a>
-          </h3>
+          </h3> -->
 
           <img
             src="4.png"
@@ -138,7 +139,13 @@
           <img
             src="greenpatti.png"
             alt="bottom bar"
-            style="position: absolute; left: -12%; bottom: -485px; width: 200%"
+            style="
+              position: absolute;
+              top: 253%;
+              left: -13%;
+              bottom: -485px;
+              width: 200%;
+            "
           />
 
           <h3
@@ -185,8 +192,8 @@
             style="
               position: absolute;
               width: auto;
-              top: 87%;
-              left: 0%;
+              top: 83%;
+              left: 1%;
               height: 100px;
             "
           />
@@ -212,7 +219,7 @@
       </div>
     </div>
 
-    <div class="modal fade" id="websiteModal" tabindex="-1" aria-hidden="true">
+    <!-- <div class="modal fade" id="websiteModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-xl modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
@@ -238,7 +245,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <script src="styles/bootstrap.bundle.min.js"></script>
 
@@ -265,7 +272,7 @@
               className === "drop-in"
           );
           element.classList.remove(...classesToRemove);
-          void element.offsetWidth; // Trigger reflow
+          void element.offsetWidth;
         });
 
         // Re-add original animation classes
