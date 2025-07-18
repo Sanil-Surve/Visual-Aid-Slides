@@ -139,38 +139,38 @@
             class="slide-right"
             style="position: relative; width: 47%; top: 5%; left: 45%"
           />
-
-          <img
-            src="assets/180+self.jpg"
-            alt="tree"
-            class="slide-right slide-delay-2"
-            style="position: relative; width: 47%; top: 77%; right: 0%"
-          />
+          <a onclick="restartAnimation()">
+            <img
+              src="assets/180+self.jpg"
+              alt="tree"
+              class="slide-right slide-delay-2"
+              style="position: relative; width: 47%; top: 77%; right: 0%"
+            />
+          </a>
         </div>
       </div>
     </div>
     <script src="styles/bootstrap.bundle.min.js"></script>
     <script>
       function restartAnimation() {
-        // Get all slide-left animated elements
-        const slideElements = document.querySelectorAll(".slide-left");
+        const animatedElements = document.querySelectorAll(
+          ".slide-left, .slide-right, .drop-in, .zoom-animation, .fade-in"
+        );
 
-        // Remove animation classes and force reflow
-        slideElements.forEach((element) => {
-          // Store original classes before removing
+        animatedElements.forEach((element) => {
           const originalClasses = Array.from(element.classList).filter((cls) =>
-            cls.startsWith("slide-")
+            [
+              "slide-left",
+              "slide-right",
+              "drop-in",
+              "zoom-animation",
+              "fade-in",
+            ].includes(cls)
           );
 
-          element.classList.remove(
-            "slide-left",
-            "slide-delay-1",
-            "slide-delay-2",
-            "slide-delay-3"
-          );
+          element.classList.remove(...originalClasses);
           void element.offsetWidth; // Trigger reflow
 
-          // Restore original classes after a short delay
           setTimeout(() => {
             element.classList.add(...originalClasses);
           }, 50);
