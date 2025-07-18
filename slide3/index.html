@@ -85,17 +85,19 @@
     <div class="d-flex p-2 w-auto h-auto">
       <div class="d-flex flex-row justify-content-evenly">
         <div>
-          <img
-            src="assets/model2.png"
-            alt="Model Image"
-            style="
-              position: absolute;
-              top: 15%;
-              left: 11%;
-              width: 376px;
-              height: 500px;
-            "
-          />
+          <a onclick="restartAnimation()">
+            <img
+              src="assets/model2.png"
+              alt="Model Image"
+              style="
+                position: absolute;
+                top: 15%;
+                left: 11%;
+                width: 376px;
+                height: 500px;
+              "
+            />
+          </a>
 
           <img
             src="assets/IOS.png"
@@ -149,6 +151,7 @@
             muted
             playsinline
             loop
+            controls
           ></video>
         </div>
       </div>
@@ -156,25 +159,18 @@
     <script src="styles/bootstrap.bundle.min.js"></script>
     <script>
       function restartAnimation() {
-        // Get all slide-left animated elements
-        const slideElements = document.querySelectorAll(".slide-left");
+        const animatedElements = document.querySelectorAll(
+          ".slide-left, .slide-right"
+        );
 
-        // Remove animation classes and force reflow
-        slideElements.forEach((element) => {
-          // Store original classes before removing
+        animatedElements.forEach((element) => {
           const originalClasses = Array.from(element.classList).filter((cls) =>
             cls.startsWith("slide-")
           );
 
-          element.classList.remove(
-            "slide-left",
-            "slide-delay-1",
-            "slide-delay-2",
-            "slide-delay-3"
-          );
+          element.classList.remove(...originalClasses);
           void element.offsetWidth; // Trigger reflow
 
-          // Restore original classes after a short delay
           setTimeout(() => {
             element.classList.add(...originalClasses);
           }, 50);
