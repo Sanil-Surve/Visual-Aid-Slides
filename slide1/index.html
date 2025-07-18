@@ -27,6 +27,17 @@
       }
     }
 
+    @keyframes slideInLeft {
+      0% {
+        transform: translateX(-100px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
     @keyframes dropIn {
       0% {
         transform: translateY(-200px);
@@ -38,6 +49,22 @@
       }
     }
 
+    @keyframes zoomInOut {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .zoom-animation {
+      animation: zoomInOut 2s ease-in-out;
+    }
+
     .drop-in {
       animation: dropIn 1s ease-out forwards;
       animation-delay: 1s;
@@ -47,6 +74,31 @@
     .slide-right {
       animation: slideInRight 2s ease-out forwards;
       /* opacity: 0; */
+    }
+
+    .slide-left {
+      animation: slideInLeft 1s ease-out forwards;
+      opacity: 0;
+    }
+
+    .slide-delay-1 {
+      animation-delay: 0.3s;
+    }
+
+    .slide-delay-2 {
+      animation-delay: 0.6s;
+    }
+
+    .slide-delay-3 {
+      animation-delay: 0.9s;
+    }
+
+    .slide-delay-4 {
+      animation-delay: 1.2s;
+    }
+
+    .slide-delay-5 {
+      animation-delay: 1.5s;
     }
   </style>
   <body>
@@ -157,6 +209,7 @@
               color: white;
               font-size: larger;
             "
+            class="slide-left slide-delay-1"
           >
             AS SEEN IN:
           </h3>
@@ -164,22 +217,26 @@
           <img
             src="ga.png"
             alt="bottom bar"
+            class="slide-left slide-delay-2"
             style="position: absolute; left: 19%; top: 264%; width: 20%"
           />
 
           <img
             src="Picture1.png"
             alt="bottom bar"
+            class="slide-left slide-delay-3"
             style="position: absolute; left: 45%; top: 260%; width: 20%"
           />
           <img
             src="Picture2.png"
             alt="bottom bar"
+            class="slide-left slide-delay-4"
             style="position: absolute; left: 70%; top: 260%; width: 20%"
           />
           <img
             src="Picture3.png"
             alt="bottom bar"
+            class="slide-left slide-delay-5"
             style="position: absolute; left: 100%; top: 258%; width: 20%"
           />
         </div>
