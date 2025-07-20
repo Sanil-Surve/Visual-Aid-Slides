@@ -10,7 +10,7 @@
       body {
         width: 100vw;
         height: 110vh;
-        overflow-y: scroll;
+        overflow: scroll;
       }
 
       body {
@@ -133,16 +133,53 @@
             class="slide-right"
             style="position: relative; width: 47%; top: 35%; left: 45%"
           />
-
-          <img
-            src="assets/univercity.jpg"
-            alt="tree"
-            class="slide-right slide-delay-2"
-            style="position: relative; width: 47%; top: 101%; right: 3%"
-          />
+          <a data-bs-toggle="modal" data-bs-target="#pdfModal">
+            <img
+              src="assets/univercity.jpg"
+              alt="tree"
+              class="slide-right slide-delay-2"
+              style="position: relative; width: 47%; top: 101%; right: 3%"
+            />
+          </a>
         </div>
       </div>
     </div>
+    <!-- PDF Modal -->
+    <div
+      class="modal fade"
+      id="pdfModal"
+      tabindex="-1"
+      aria-labelledby="pdfModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="pdfModalLabel">Matching PDF</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div
+              id="pdf-container"
+              style="
+                width: 90%;
+                margin: 0 auto;
+                border: 1px solid #ccc;
+                overflow-y: auto;
+                max-height: 80vh;
+                touch-action: none;
+              "
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="styles/bootstrap.bundle.min.js"></script>
     <script>
       function restartAnimation() {
@@ -169,6 +206,51 @@
           }, 50);
         });
       }
+    </script>
+    <!-- Include PDF.js -->
+    <script src="pdf.min.js"></script>
+    <script>
+      pdfjsLib.GlobalWorkerOptions.workerSrc = "pdf.worker.min.js";
+
+      const pdfUrl = "matching.pdf";
+
+      let pdfDoc = null;
+      const container = document.getElementById("pdf-container");
+
+      const renderPage = (page) => {
+        const viewport = page.getViewport({ scale: 1.2 });
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+        canvas.style.width = "100%";
+
+        const wrapper = document.createElement("div");
+        wrapper.style.overflow = "hidden";
+        wrapper.style.marginBottom = "1rem";
+        wrapper.appendChild(canvas);
+        container.appendChild(wrapper);
+
+        const renderContext = {
+          canvasContext: ctx,
+          viewport: viewport,
+        };
+        page.render(renderContext);
+      };
+
+      const loadPDF = () => {
+        container.innerHTML = ""; // clear existing
+        pdfjsLib.getDocument(pdfUrl).promise.then((pdfDoc_) => {
+          pdfDoc = pdfDoc_;
+          for (let num = 1; num <= pdfDoc.numPages; num++) {
+            pdfDoc.getPage(num).then(renderPage);
+          }
+        });
+      };
+
+      document
+        .getElementById("pdfModal")
+        .addEventListener("shown.bs.modal", loadPDF);
     </script>
   </body>
 </html>
