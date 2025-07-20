@@ -91,6 +91,26 @@
         animation: slideInRight 1s ease-out forwards;
         opacity: 0;
       }
+
+      .slide-delay-1 {
+        animation-delay: 0.5s;
+      }
+      .slide-delay-2 {
+        animation-delay: 1s;
+      }
+      .slide-delay-3 {
+        animation-delay: 2s;
+      }
+      .slide-delay-4 {
+        animation-delay: 3s;
+      }
+      .slide-delay-5 {
+        animation-delay: 4s;
+      }
+      .slide-delay-6 {
+        animation-delay: 5s;
+        animation: fadeIn 5s ease-in forwards;
+      }
     </style>
   </head>
   <body>
@@ -107,7 +127,6 @@
               width: 36%;
               height: 212px;
             "
-            class="drop-in"
           />
           <a onclick="restartAnimation()">
             <img
@@ -129,7 +148,7 @@
               height: 19%;
               width: 15%;
             "
-            class="fade-in"
+            class="slide-delay-6"
           />
 
           <img
@@ -142,7 +161,7 @@
               height: 10%;
               width: 22%;
             "
-            class="fade-in"
+            class="slide-delay-6"
           />
 
           <img
@@ -155,16 +174,43 @@
               height: 17%;
               width: 15%;
             "
-            class="fade-in"
+            class="slide-delay-6"
           />
         </div>
 
-        <div class="flex-column">
+        <div
+          class="d-flex flex-column align-items-center justify-content-center"
+        >
           <img
-            src="assets/Picture6.png"
+            src="assets/1.png"
             alt="tree"
-            class="slide-right"
-            style="position: relative; width: 47%; top: 13%; left: 50%"
+            class="drop-in slide-delay-1"
+            style="position: absolute; width: 30%; top: 15%; right: 3%"
+          />
+
+          <img
+            src="assets/arrow.png"
+            alt="tree"
+            class="drop-in slide-delay-2"
+            style="position: absolute; width: 5%; top: 33%; right: 15%"
+          />
+          <img
+            src="assets/2.png"
+            alt="tree"
+            class="drop-in slide-delay-3"
+            style="position: absolute; width: 20%; top: 45%; right: 7%"
+          />
+          <img
+            src="assets/3.png"
+            alt="tree"
+            class="drop-in slide-delay-4"
+            style="position: absolute; width: 20%; top: 60%; right: 7%"
+          />
+          <img
+            src="assets/4.png"
+            alt="tree"
+            class="drop-in slide-delay-5"
+            style="position: absolute; width: 20%; top: 75%; right: 7%"
           />
         </div>
       </div>
@@ -173,7 +219,7 @@
     <script>
       function restartAnimation() {
         const animatedElements = document.querySelectorAll(
-          ".slide-left, .slide-right, .drop-in, .zoom-animation, .fade-in"
+          ".slide-left, .slide-right, .drop-in, .zoom-animation, .fade-in, .slide-delay-1, .slide-delay, .slide-delay-3, .slide-delay-4, .slide-delay-5, .slide-delay-6"
         );
 
         animatedElements.forEach((element) => {
@@ -181,6 +227,12 @@
             [
               "slide-left",
               "slide-right",
+              "slide-delay-1",
+              "slide-delay-2",
+              "slide-delay-3",
+              "slide-delay-4",
+              "slide-delay-5",
+              "slide-delay-6",
               "drop-in",
               "zoom-animation",
               "fade-in",

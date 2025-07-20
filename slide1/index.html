@@ -10,11 +10,14 @@
     body {
       width: 100vw;
       height: 112vh;
+      /* overflow-y: scroll; */
+      overflow: scroll;
+    }
+    body {
       background-image: url("background.jpg");
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      overflow-y: scroll;
     }
     @keyframes slideInRight {
       0% {
@@ -126,7 +129,7 @@
           <img
             id="three"
             src="line.png"
-            class="slide-left slide-delay-3 img-fluid"
+            class="img-fluid"
             alt="Catch-Up Growth"
             style="position: absolute; width: 95%; top: 268px"
           />
@@ -249,8 +252,8 @@
             style="
               position: absolute;
               width: auto;
-              top: 83%;
-              left: 1%;
+              top: 91%;
+              left: 0;
               height: 100px;
             "
           />
@@ -264,7 +267,7 @@
               alt="WelTone Logo"
               style="
                 position: absolute;
-                top: 12%;
+                top: 14%;
                 left: 55%;
                 width: 48.5%;
                 z-index: 5;
@@ -310,7 +313,7 @@
       function restartAnimations() {
         // Get all elements with animation classes
         const animatedElements = document.querySelectorAll(
-          '[class*="slide-"], .zoom-animation, .rise-up, .drop-in'
+          '[class*="slide-"], .zoom-animation, .drop-in'
         );
 
         // Store original classes for each element
@@ -325,7 +328,6 @@
             (className) =>
               className.startsWith("slide-") ||
               className === "zoom-animation" ||
-              className === "rise-up" ||
               className === "drop-in"
           );
           element.classList.remove(...classesToRemove);

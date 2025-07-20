@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slide 3</title>
+    <link href="styles/global.css" rel="stylesheet" />
+    <style>
+      html,
+      body {
+        width: 100vw;
+        height: 100vh;
+        overflow-y: scroll;
+      }
+
+      body {
+        background-image: url("assets/slide8.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      @keyframes slideInRight {
+        0% {
+          transform: translateX(100px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      /* Animation Keyframes */
+      @keyframes slideInLeft {
+        0% {
+          transform: translateX(-100px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes dropIn {
+        0% {
+          transform: translateY(-200px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes zoomInOut {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .zoom-animation {
+        animation: zoomInOut 2s ease-in-out;
+      }
+
+      .slide-left {
+        animation: slideInLeft 1s ease-out forwards;
+        opacity: 0;
+      }
+
+      .drop-in {
+        animation: dropIn 1s ease-out forwards;
+        animation-delay: 1s;
+        opacity: 0;
+      }
+
+      .fade-in {
+        animation: fadeIn 5s ease-in forwards;
+      }
+
+      .slide-right {
+        animation: slideInRight 1s ease-out forwards;
+        opacity: 0;
+      }
+
+      .slide-delay-1 {
+        animation-delay: 0.3s;
+      }
+
+      .slide-delay-2 {
+        animation-delay: 0.6s;
+      }
+
+      .slide-delay-3 {
+        animation-delay: 0.9s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="d-flex">
+      <div class="d-flex flex-row justify-content-evenly">
+        <a data-bs-toggle="modal" data-bs-target="#imageModal">
+          <img
+            src="assets/weekly uses.png"
+            alt=""
+            id="zoomImage"
+            width="35%"
+            height="60%"
+            style="position: absolute; top: 30%; left: 10%"
+            class="zoom-animation"
+          />
+        </a>
+
+        <a data-bs-toggle="modal" data-bs-target="#stressModal">
+          <img
+            src="assets/stress level.png"
+            alt=""
+            width="40%"
+            height="60%"
+            style="position: absolute; top: 30%; right: 10%"
+            class="zoom-animation slide-delay-2"
+          />
+        </a>
+      </div>
+    </div>
+    <script src="styles/bootstrap.bundle.min.js"></script>
+    <script>
+      function restartAnimation() {
+        const animatedElements = document.querySelectorAll(
+          ".slide-left, .slide-right, .drop-in, .zoom-animation, .fade-in"
+        );
+
+        animatedElements.forEach((element) => {
+          const originalClasses = Array.from(element.classList).filter((cls) =>
+            [
+              "slide-left",
+              "slide-right",
+              "drop-in",
+              "zoom-animation",
+              "fade-in",
+            ].includes(cls)
+          );
+
+          element.classList.remove(...originalClasses);
+          void element.offsetWidth; // Trigger reflow
+
+          setTimeout(() => {
+            element.classList.add(...originalClasses);
+          }, 50);
+        });
+      }
+    </script>
+  </body>
+  <div
+    class="modal fade"
+    id="imageModal"
+    tabindex="-1"
+    aria-labelledby="imageModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="imageModalLabel">Weekly Usage</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="assets/weekly uses.png" alt="Slide" class="img-fluid" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="modal fade"
+    id="stressModal"
+    tabindex="-1"
+    aria-labelledby="imageModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="imageModalLabel">Stress Level</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="assets/stress level.png" alt="Slide" class="img-fluid" />
+        </div>
+      </div>
+    </div>
+  </div>
+</html>
