@@ -207,9 +207,12 @@
       }
     </script>
     <!-- Include PDF.js -->
-    <script src="pdf.min.js"></script>
+    <!-- <script src="pdf.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
     <script>
-      pdfjsLib.GlobalWorkerOptions.workerSrc = "pdf.worker.min.js";
+      // pdfjsLib.GlobalWorkerOptions.workerSrc = "pdf.worker.min.js";
+      pdfjsLib.GlobalWorkerOptions.workerSrc =
+        "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js";
 
       const pdfUrl = "matching.pdf";
 
