@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WelTone Animation</title>
+    <link href="styles/global.css" rel="stylesheet" />
+  </head>
+  <style>
+    body {
+      width: 100vw;
+      height: 112vh;
+      /* overflow-y: scroll; */
+      overflow: scroll;
+    }
+    body {
+      background-image: url("background.jpg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    @keyframes slideInRight {
+      0% {
+        transform: translateX(100px);
+        /* opacity: 0; */
+      }
+      100% {
+        transform: translateX(0);
+        /* opacity: 1; */
+      }
+    }
+
+    @keyframes slideInLeft {
+      0% {
+        transform: translateX(-100px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes dropIn {
+      0% {
+        transform: translateY(-200px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes zoomInOut {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .zoom-animation {
+      animation: zoomInOut 2s ease-in-out;
+    }
+
+    .drop-in {
+      animation: dropIn 1s ease-out forwards;
+      animation-delay: 1s;
+      opacity: 0;
+    }
+
+    .slide-right {
+      animation: slideInRight 2s ease-out forwards;
+      /* opacity: 0; */
+    }
+
+    .slide-left {
+      animation: slideInLeft 1s ease-out forwards;
+      opacity: 0;
+    }
+
+    .slide-delay-1 {
+      animation-delay: 0.3s;
+    }
+
+    .slide-delay-2 {
+      animation-delay: 0.6s;
+    }
+
+    .slide-delay-3 {
+      animation-delay: 0.9s;
+    }
+
+    .slide-delay-4 {
+      animation-delay: 1.2s;
+    }
+
+    .slide-delay-5 {
+      animation-delay: 1.5s;
+    }
+  </style>
+  <body>
+    <div class="d-flex p-2 w-auto h-auto">
+      <div class="d-flex flex-row justify-content-evenly">
+        <div
+          class="col-sm-3 d-flex flex-column align-items-md-center gap-4 mt-4 mb-2"
+          style="position: relative; top: 85px; left: -101px; width: 47%"
+        >
+          <a onclick="restartAnimations()">
+            <img
+              id="one"
+              src="lpgo.png"
+              class="drop-in img-fluid"
+              alt="Boost Immunity"
+            />
+          </a>
+          <img
+            id="two"
+            src="tagline.png"
+            class="slide-left slide-delay-2 img-fluid"
+            style="margin-left: 140px; width: 54%"
+            alt="Early Recovery"
+          />
+          <img
+            id="three"
+            src="line.png"
+            class="img-fluid"
+            alt="Catch-Up Growth"
+            style="position: absolute; width: 95%; top: 268px"
+          />
+
+          <h3 style="position: absolute; top: 287px; width: 80%; left: 123px">
+            In partnership with
+            <a
+              style="color: #004030; text-decoration: underline"
+              data-bs-toggle="modal"
+              data-bs-target="#websiteModal"
+              >RogaLife. USA</a
+            >
+          </h3>
+
+          <!-- <h3 style="position: absolute; top: 287px; width: 80%; left: 123px">
+            In partnership with
+            <a
+              href="#"
+              style="
+                color: #004030;
+                text-decoration: underline;
+                cursor: pointer;
+              "
+              data-bs-toggle="modal"
+              data-bs-target="#websiteModal"
+            >
+              RogaLife. USA
+            </a>
+          </h3> -->
+
+          <img
+            src="4.png"
+            alt="Image 1"
+            style="position: absolute; top: 157%; left: -7%; width: 25%"
+            class="zoom-animation slide-delay-1"
+          />
+          <img
+            src="2.png"
+            alt="Image 2"
+            style="position: absolute; top: 182%; left: 18%; width: 25%"
+            class="zoom-animation slide-delay-2"
+          />
+          <img
+            src="6.png"
+            alt="Image 3"
+            style="position: absolute; top: 159%; left: 44%; width: 25%"
+            class="zoom-animation slide-delay-3"
+          />
+          <img
+            src="1.png"
+            alt="Image 4"
+            style="position: absolute; top: 181%; left: 68%; width: 25%"
+            class="zoom-animation slide-delay-4"
+          />
+          <img
+            src="3.png"
+            alt="Image 5"
+            style="position: absolute; left: 93%; top: 161%; width: 25%"
+            class="zoom-animation slide-delay-5"
+          />
+
+          <img
+            src="greenpatti.png"
+            alt="bottom bar"
+            style="
+              position: absolute;
+              top: 253%;
+              left: -13%;
+              bottom: -485px;
+              width: 200%;
+            "
+          />
+
+          <h3
+            style="
+              position: absolute;
+              left: -6%;
+              top: 263%;
+              width: 30%;
+              color: white;
+              font-size: larger;
+            "
+            class="slide-left slide-delay-1"
+          >
+            AS SEEN IN:
+          </h3>
+
+          <img
+            src="ga.png"
+            alt="bottom bar"
+            class="slide-left slide-delay-2"
+            style="position: absolute; left: 19%; top: 264%; width: 20%"
+          />
+
+          <img
+            src="Picture1.png"
+            alt="bottom bar"
+            class="slide-left slide-delay-3"
+            style="position: absolute; left: 45%; top: 260%; width: 20%"
+          />
+          <img
+            src="Picture2.png"
+            alt="bottom bar"
+            class="slide-left slide-delay-4"
+            style="position: absolute; left: 70%; top: 260%; width: 20%"
+          />
+          <img
+            src="Picture3.png"
+            alt="bottom bar"
+            class="slide-left slide-delay-5"
+            style="position: absolute; left: 100%; top: 258%; width: 20%"
+          />
+        </div>
+
+        <div>
+          <img
+            id="three"
+            src="zikzakline.png"
+            alt="Catch-Up Growth"
+            style="
+              position: absolute;
+              width: auto;
+              top: 91%;
+              left: 0;
+              height: 100px;
+            "
+          />
+        </div>
+
+        <div class="text-center d-flex align-items-end justify-content-center">
+          <div>
+            <img
+              id="logo"
+              src="model.png"
+              alt="WelTone Logo"
+              style="
+                position: absolute;
+                top: 14%;
+                left: 55%;
+                width: 48.5%;
+                z-index: 5;
+              "
+              class="slide-right"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="modal fade" id="websiteModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Roga</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <iframe
+              src="http://31.97.202.251:3000/proxy"
+              title="Embedded Website"
+              style="
+                width: 100%;
+                height: 80vh;
+                border: 2px solid #dee2e6;
+                border-radius: 0.5rem;
+              "
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <script src="styles/bootstrap.bundle.min.js"></script>
+
+    <script>
+      function restartAnimations() {
+        // Get all elements with animation classes
+        const animatedElements = document.querySelectorAll(
+          '[class*="slide-"], .zoom-animation, .drop-in'
+        );
+
+        // Store original classes for each element
+        const originalClasses = new Map();
+        animatedElements.forEach((element) => {
+          originalClasses.set(element, Array.from(element.classList));
+        });
+
+        // Remove animation classes and force reflow
+        animatedElements.forEach((element) => {
+          const classesToRemove = Array.from(element.classList).filter(
+            (className) =>
+              className.startsWith("slide-") ||
+              className === "zoom-animation" ||
+              className === "drop-in"
+          );
+          element.classList.remove(...classesToRemove);
+          void element.offsetWidth;
+        });
+
+        setTimeout(() => {
+          animatedElements.forEach((element) => {
+            element.classList.add(...originalClasses.get(element));
+          });
+        }, 50);
+      }
+    </script>
+  </body>
+</html>
