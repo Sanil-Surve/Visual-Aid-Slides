@@ -8,8 +8,6 @@
     <style>
       html,
       body {
-        margin: 0;
-        padding: 0;
         width: 100vw;
         height: 100vh;
         background-image: url("INTRObackground.jpg");
@@ -47,47 +45,32 @@
   <body>
     <div class="d-flex p-2 w-auto h-auto">
       <div class="d-flex flex-row justify-content-evenly">
-        <div
-          class="d-flex flex-column align-items-md-center justify-content-center gap-4 mt-4 mb-2"
-          style="position: relative; width: 486px; top: 3px; left: 130px"
-        >
+        <div>
           <img
             src="spinning-roga-device.gif"
             class="img-fluid"
             alt="Catch-Up Growth"
-            style="width: 100%"
+            style="width: 39%; position: absolute; left: 10%"
           />
         </div>
 
-        <div class="d-flex flex-column align-items-end justify-content-end">
-          <div style="position: relative; top: -158px; left: -200px">
-            <a onclick="restartAnimation()">
+        <div class="d-flex flex-column" style="position: relative; top: 49%; right: -24%; width: 41%; height: 83%;">
+            <a onclick="restartAnimation()" style="cursor: pointer;">
               <img
                 src="intro.png"
                 alt="WelTone Logo"
-                style="
-                  position: absolute;
-                  top: -400px;
-                  left: 478px;
-                  width: 513px;
-                  z-index: 5;
-                "
                 class="slide-right"
-              />
-
-              <img
-                src="intro2.png"
-                alt="WelTone Logo"
-                style="
-                  position: absolute;
-                  top: -250px;
-                  left: 500px;
-                  width: 400px;
-                "
-                class="slide-right"
+                style="width: 163%;"
               />
             </a>
-          </div>
+
+            <img
+              src="intro2.png"
+              alt="WelTone Logo"
+              class="slide-right"
+              style="margin-top: 10%; margin-left: 10%;"
+            />
+        </div>
         </div>
       </div>
     </div>
