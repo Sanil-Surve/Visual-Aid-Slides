@@ -14,7 +14,7 @@
       }
 
       body {
-        background-image: url("assets/appbackground.jpg");
+        background-image: url("assets/slide8.jpg");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -76,7 +76,7 @@
       }
 
       .zoom-animation {
-        animation: zoomInOut 2s ease-in-out infinite;
+        animation: zoomInOut 2s ease-in-out;
       }
 
       .slide-left {
@@ -113,41 +113,30 @@
     </style>
   </head>
   <body>
-    <div class="d-flex p-2 w-auto h-auto">
+    <div class="d-flex">
       <div class="d-flex flex-row justify-content-evenly">
-        <div>
-          <video
-            src="assets/App-Intro-Cream-Color.mp4"
-            style="
-              position: absolute;
-              top: 24%;
-              left: 2%;
-              height: 66%;
-              width: 48%;
-            "
-            autoplay
-            muted
-            playsinline
-            loop
-          ></video>
-        </div>
-
-        <div>
+        <a data-bs-toggle="modal" data-bs-target="#imageModal">
           <img
-            src="assets/dogotal.png"
-            alt="tree"
-            class="slide-right"
-            style="position: relative; width: 47%; top: 5%; left: 45%"
+            src="assets/weekly uses.png"
+            alt=""
+            id="zoomImage"
+            width="35%"
+            height="60%"
+            style="position: absolute; top: 30%; left: 10%"
+            class="zoom-animation"
           />
-          <a onclick="restartAnimation()">
-            <img
-              src="assets/180+self.jpg"
-              alt="tree"
-              class="slide-right slide-delay-2"
-              style="position: relative; width: 47%; top: 77%; right: 0%"
-            />
-          </a>
-        </div>
+        </a>
+
+        <a data-bs-toggle="modal" data-bs-target="#stressModal">
+          <img
+            src="assets/stress level.png"
+            alt=""
+            width="40%"
+            height="60%"
+            style="position: absolute; top: 30%; right: 10%"
+            class="zoom-animation slide-delay-2"
+          />
+        </a>
       </div>
     </div>
     <script src="styles/bootstrap.bundle.min.js"></script>
@@ -178,4 +167,53 @@
       }
     </script>
   </body>
+  <div
+    class="modal fade"
+    id="imageModal"
+    tabindex="-1"
+    aria-labelledby="imageModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="imageModalLabel">Weekly Usage</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="assets/weekly uses.png" alt="Slide" class="img-fluid" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="modal fade"
+    id="stressModal"
+    tabindex="-1"
+    aria-labelledby="imageModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="imageModalLabel">Stress Level</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="assets/stress level.png" alt="Slide" class="img-fluid" />
+        </div>
+      </div>
+    </div>
+  </div>
 </html>
