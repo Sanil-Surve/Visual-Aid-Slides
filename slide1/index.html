@@ -10,7 +10,7 @@
     body {
       width: 100vw;
       height: 100vh;
-      /* overflow-y: scroll; */
+      overflow: scroll;
     }
     body {
       background-image: url("1stbackground.jpg");
@@ -18,6 +18,7 @@
       background-repeat: no-repeat;
       background-size: cover;
     }
+
     @keyframes slideInRight {
       0% {
         transform: translateX(100px);
@@ -104,226 +105,164 @@
     }
   </style>
   <body>
-    <div class="d-flex p-2 w-auto h-auto">
-      <div class="d-flex flex-row justify-content-evenly">
-        <div
-          class="col-sm-3 d-flex flex-column align-items-md-center gap-4 mt-4 mb-2"
-          style="position: relative; top: 85px; left: -101px; width: 47%"
-        >
-          <a onclick="restartAnimations()">
-            <img
-              id="one"
-              src="lpgo.png"
-              class="drop-in img-fluid"
-              alt="Boost Immunity"
-            />
-          </a>
+    <div>
+      <div class="d-flex flex-column gap-2">
+        <a onclick="restartAnimations()">
           <img
-            id="two"
-            src="tagline.png"
-            class="slide-left slide-delay-2 img-fluid"
-            style="margin-left: 140px; width: 54%"
-            alt="Early Recovery"
+            id="one"
+            src="lpgo.png"
+            class="drop-in img-fluid"
+            alt="Boost Immunity"
+            style="width: 50%; margin-top: 5%; margin-left: 7%"
           />
-          <img
-            id="three"
-            src="line.png"
-            class="img-fluid"
-            alt="Catch-Up Growth"
-            style="position: absolute; width: 95%; top: 268px"
-          />
+        </a>
+        <img
+          id="two"
+          src="tagline.png"
+          class="slide-left slide-delay-2 img-fluid"
+          style="margin-left: 20%; margin-top: 1%; width: 31%"
+          alt="Early Recovery"
+        />
+        <img
+          id="three"
+          src="line.png"
+          class="img-fluid"
+          alt="Catch-Up Growth"
+          style="width: 42%; margin-left: 10%"
+        />
 
-          <h3 style="position: absolute; top: 287px; width: 80%; left: 123px">
-            In partnership with
-            <a
-              style="color: #004030; text-decoration: underline"
-              data-bs-toggle="modal"
-              data-bs-target="#websiteModal"
-              >RogaLife. USA</a
-            >
-          </h3>
+        <h3 style="margin-left: 21%; width: 25%; font-size: larger">
+          In partnership with
+          <a
+            style="color: #004030; text-decoration: underline"
+            data-bs-toggle="modal"
+            data-bs-target="#websiteModal"
+            >RogaLife. USA</a
+          >
+        </h3>
+      </div>
+      <!-- <div class="d-flex flex-row" style="margin-top: 50px">
+        <img
+          src="4.png"
+          alt="Image 1"
+          class="zoom-animation slide-delay-1"
+          style="width: 10%; height: 10%; margin-left: 63px; margin-top: 84px"
+        />
+        <img
+          src="2.png"
+          alt="Image 2"
+          class="zoom-animation slide-delay-2"
+          style="width: 10%; height: 10%; margin-left: 36px; margin-top: 131px"
+        />
+        <img
+          src="6.png"
+          alt="Image 3"
+          class="zoom-animation slide-delay-3"
+          style="width: 10%; height: 10%; margin-left: 39px; margin-top: 84px"
+        />
+        <img
+          src="1.png"
+          alt="Image 4"
+          class="zoom-animation slide-delay-4"
+          style="width: 10%; height: 10%; margin-left: 2%; margin-top: 7%"
+        />
+        <img
+          src="3.png"
+          alt="Image 5"
+          class="zoom-animation slide-delay-5"
+          style="width: 10%; height: 10%; margin-left: 35px; margin-top: 4%"
+        />
+      </div> -->
 
-          <!-- <h3 style="position: absolute; top: 287px; width: 80%; left: 123px">
-            In partnership with
-            <a
-              href="#"
-              style="
-                color: #004030;
-                text-decoration: underline;
-                cursor: pointer;
-              "
-              data-bs-toggle="modal"
-              data-bs-target="#websiteModal"
-            >
-              RogaLife. USA
-            </a>
-          </h3> -->
+      <div>
+        <img
+          id="three"
+          src="points.png"
+          alt="Catch-Up Growth"
+          style="
+            position: absolute;
+            width: 64%;
+            top: 60%;
+            left: 4px;
+            height: 157px;
+          "
+        />
+      </div>
 
-          <img
-            src="4.png"
-            alt="Image 1"
-            style="position: absolute; top: 157%; left: -7%; width: 25%"
-            class="zoom-animation slide-delay-1"
-          />
-          <img
-            src="2.png"
-            alt="Image 2"
-            style="position: absolute; top: 182%; left: 18%; width: 25%"
-            class="zoom-animation slide-delay-2"
-          />
-          <img
-            src="6.png"
-            alt="Image 3"
-            style="position: absolute; top: 159%; left: 44%; width: 25%"
-            class="zoom-animation slide-delay-3"
-          />
-          <img
-            src="1.png"
-            alt="Image 4"
-            style="position: absolute; top: 181%; left: 68%; width: 25%"
-            class="zoom-animation slide-delay-4"
-          />
-          <img
-            src="3.png"
-            alt="Image 5"
-            style="position: absolute; left: 93%; top: 161%; width: 25%"
-            class="zoom-animation slide-delay-5"
-          />
+      <div>
+        <img
+          id="logo"
+          src="model.png"
+          alt="WelTone Logo"
+          style="position: absolute; top: 13%; left: 57%; width: 43.5%"
+          class="slide-right"
+        />
+      </div>
 
-          <img
-            src="greenpatti.png"
-            alt="bottom bar"
-            style="
-              position: absolute;
-              top: 324%;
-              left: -14%;
-              width: 296%;
-              z-index: 300;
-            "
-          />
-
-          <h3
-            style="
-              position: absolute;
-              left: 7%;
-              top: 343%;
-              width: 30%;
-              color: white;
-              z-index: 300;
-            "
+      <div style="position: relative">
+        <img
+          src="greenpatti.png"
+          alt="bottom bar"
+          style="width: 100.5%; margin-top: 20%"
+        />
+        <div class="d-flex flex-row">
+          <h4
             class="slide-left slide-delay-1"
+            style="position: absolute; top: 83%; left: 11%; color: white"
           >
             AS SEEN IN:
-          </h3>
+          </h4>
 
           <img
             src="ga.png"
             alt="bottom bar"
             class="slide-left slide-delay-2"
-            style="
-              position: absolute;
-              left: 44%;
-              top: 344%;
-              width: 30%;
-              z-index: 300;
-            "
+            style="width: 10%; position: absolute; bottom: 12%; left: 24%"
           />
 
           <img
             src="Picture1.png"
             alt="bottom bar"
             class="slide-left slide-delay-3"
-            style="
-              position: absolute;
-              left: 91%;
-              top: 340%;
-              width: 30%;
-              z-index: 300;
-            "
+            style="width: 10%; position: absolute; top: 80%; left: 41%"
           />
           <img
             src="Picture2.png"
             alt="bottom bar"
             class="slide-left slide-delay-4"
-            style="
-              position: absolute;
-              left: 142%;
-              top: 340%;
-              width: 30%;
-              z-index: 300;
-            "
+            style="width: 10%; position: absolute; bottom: 10%; right: 30%"
           />
           <img
             src="Picture3.png"
             alt="bottom bar"
             class="slide-left slide-delay-5"
-            style="
-              position: absolute;
-              left: 199%;
-              top: 337%;
-              width: 30%;
-              z-index: 300;
-            "
+            style="position: absolute; top: 76%; right: 5%"
           />
-        </div>
-
-        <div>
-          <img
-            id="three"
-            src="zikzakline.png"
-            alt="Catch-Up Growth"
-            style="
-              position: absolute;
-              width: 64%;
-              top: 68%;
-              left: 11px;
-              height: 157px;
-            "
-          />
-        </div>
-
-        <div class="text-center d-flex align-items-end justify-content-center">
-          <div>
-            <img
-              id="logo"
-              src="model.png"
-              alt="WelTone Logo"
-              style="position: absolute; top: 13%; left: 57%; width: 43.5%"
-              class="slide-right"
-            />
-          </div>
         </div>
       </div>
+
+      <!-- <div style="width: 100%; height: 100px">
+        <h3 class="slide-left slide-delay-1">AS SEEN IN:</h3>
+
+        <img src="ga.png" alt="bottom bar" class="slide-left slide-delay-2" />
+
+        <img
+          src="Picture1.png"
+          alt="bottom bar"
+          class="slide-left slide-delay-3"
+        />
+        <img
+          src="Picture2.png"
+          alt="bottom bar"
+          class="slide-left slide-delay-4"
+        />
+        <img
+          src="Picture3.png"
+          alt="bottom bar"
+          class="slide-left slide-delay-5"
+        />
+      </div>  -->
     </div>
-
-    <!-- <div class="modal fade" id="websiteModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-xl modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Roga</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <iframe
-              src="http://31.97.202.251:3000/proxy"
-              title="Embedded Website"
-              style="
-                width: 100%;
-                height: 80vh;
-                border: 2px solid #dee2e6;
-                border-radius: 0.5rem;
-              "
-            ></iframe>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
     <script src="styles/bootstrap.bundle.min.js"></script>
 
     <script>
