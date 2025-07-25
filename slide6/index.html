@@ -114,6 +114,16 @@
       .slide-delay-3 {
         animation-delay: 0.9s;
       }
+
+      #zoom-container {
+        overflow: hidden;
+        touch-action: none;
+      }
+
+      #zoom-image {
+        transform-origin: center center;
+        transition: transform 0.1s ease;
+      }
     </style>
   </head>
   <body>
@@ -280,12 +290,14 @@
     <script>
       let initialDistance = null;
       let currentScale = 1;
+      let lastScale = 1;
 
       const img = document.getElementById("zoom-image");
 
       img.addEventListener("touchstart", function (e) {
         if (e.touches.length === 2) {
           initialDistance = getDistance(e.touches[0], e.touches[1]);
+          lastScale = currentScale;
         }
       });
 
@@ -293,7 +305,7 @@
         if (e.touches.length === 2 && initialDistance) {
           const newDistance = getDistance(e.touches[0], e.touches[1]);
           const scale = newDistance / initialDistance;
-          currentScale = Math.max(1, Math.min(scale, 3));
+          currentScale = Math.max(1, Math.min(lastScale * scale, 4)); // Limit scale from 1 to 4
           img.style.transform = `scale(${currentScale})`;
           e.preventDefault();
         }
