@@ -159,53 +159,8 @@
         </div>
       </div>
     </div>
-    <!-- PDF Modal -->
-    <!-- <div
-      class="modal fade"
-      id="pdfModal"
-      tabindex="-1"
-      aria-labelledby="pdfModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-xl modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="pdfModalLabel">...</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div
-            id="image-container"
-            style="
-              width: 100%;
-              overflow: scroll;
-              touch-action: none;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              zoom: normal;
-            "
-          >
-            <img
-              id="zoom-image"
-              src="assets/rogalife.jpeg"
-              alt="Zoomable"
-              style="
-                max-width: 100%;
-                max-height: 100%;
-                touch-action: none;
-                transform-origin: center center;
-              "
-            />
-          </div>
-        </div>
-      </div>
-    </div> -->
 
+    <!-- Image Modal -->
     <div
       class="modal fade"
       id="imageModal"
@@ -288,94 +243,20 @@
         modal.show();
       }
     </script>
+    <!-- <script src="https://unpkg.com/@panzoom/panzoom/dist/panzoom.min.js"></script> -->
+    <script src="panzoom.min.js"></script>
     <script>
-      let initialDistance = null;
-      let currentScale = 1;
-      let lastScale = 1;
-
-      const img = document.getElementById("zoom-image");
-
-      img.addEventListener("touchstart", function (e) {
-        if (e.touches.length === 2) {
-          initialDistance = getDistance(e.touches[0], e.touches[1]);
-          lastScale = currentScale;
-        }
+      const zoomElement = document.getElementById("zoom-image");
+      const panzoomInstance = Panzoom(zoomElement, {
+        maxScale: 4,
+        minScale: 1,
+        contain: "outside",
       });
-
-      img.addEventListener("touchmove", function (e) {
-        if (e.touches.length === 2 && initialDistance) {
-          const newDistance = getDistance(e.touches[0], e.touches[1]);
-          const scale = newDistance / initialDistance;
-          currentScale = Math.max(1, Math.min(lastScale * scale, 4)); // Limit scale from 1 to 4
-          img.style.transform = `scale(${currentScale})`;
-          e.preventDefault();
-        }
-      });
-
-      img.addEventListener("touchend", function (e) {
-        if (e.touches.length < 2) {
-          initialDistance = null;
-        }
-      });
-
-      function getDistance(touch1, touch2) {
-        const dx = touch2.clientX - touch1.clientX;
-        const dy = touch2.clientY - touch1.clientY;
-        return Math.sqrt(dx * dx + dy * dy);
-      }
-
-      let isDragging = false;
-      let startX, startY;
-      let currentX = 0,
-        currentY = 0;
-
-      img.addEventListener("mousedown", function (e) {
-        isDragging = true;
-        startX = e.clientX - currentX;
-        startY = e.clientY - currentY;
-        img.style.cursor = "grabbing";
-      });
-
-      img.addEventListener("mousemove", function (e) {
-        if (isDragging) {
-          currentX = (e.clientX - startX) * 0.5;
-          currentY = (e.clientY - startY) * 0.5;
-          img.style.transform = `scale(${currentScale}) translate(${currentX}px, ${currentY}px)`;
-        }
-      });
-
-      img.addEventListener("mouseup", function () {
-        isDragging = false;
-        img.style.cursor = "grab";
-      });
-
-      img.addEventListener("mouseleave", function () {
-        isDragging = false;
-        img.style.cursor = "grab";
-      });
-
-      img.addEventListener("touchstart", function (e) {
-        if (e.touches.length === 1) {
-          isDragging = true;
-          startX = e.touches[0].clientX - currentX;
-          startY = e.touches[0].clientY - currentY;
-        }
-      });
-
-      img.addEventListener("touchmove", function (e) {
-        if (e.touches.length === 1 && isDragging) {
-          currentX = (e.touches[0].clientX - startX) * 0.5;
-          currentY = (e.touches[0].clientY - startY) * 0.5;
-          img.style.transform = `scale(${currentScale}) translate(${currentX}px, ${currentY}px)`;
-          e.preventDefault();
-        }
-      });
-
-      img.addEventListener("touchend", function (e) {
-        if (e.touches.length === 0) {
-          isDragging = false;
-        }
-      });
+      // Optional: Allow wheel zoom
+      zoomElement.parentElement.addEventListener(
+        "wheel",
+        panzoomInstance.zoomWithWheel
+      );
     </script>
   </body>
 </html>
