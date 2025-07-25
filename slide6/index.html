@@ -246,6 +246,7 @@
                   max-height: 100%;
                   touch-action: none;
                   transform-origin: center center;
+                  cursor: grab;
                 "
               />
             </div>
@@ -322,6 +323,59 @@
         const dy = touch2.clientY - touch1.clientY;
         return Math.sqrt(dx * dx + dy * dy);
       }
+
+      let isDragging = false;
+      let startX, startY;
+      let currentX = 0,
+        currentY = 0;
+
+      img.addEventListener("mousedown", function (e) {
+        isDragging = true;
+        startX = e.clientX - currentX;
+        startY = e.clientY - currentY;
+        img.style.cursor = "grabbing";
+      });
+
+      img.addEventListener("mousemove", function (e) {
+        if (isDragging) {
+          currentX = (e.clientX - startX) * 0.5;
+          currentY = (e.clientY - startY) * 0.5;
+          img.style.transform = `scale(${currentScale}) translate(${currentX}px, ${currentY}px)`;
+        }
+      });
+
+      img.addEventListener("mouseup", function () {
+        isDragging = false;
+        img.style.cursor = "grab";
+      });
+
+      img.addEventListener("mouseleave", function () {
+        isDragging = false;
+        img.style.cursor = "grab";
+      });
+
+      img.addEventListener("touchstart", function (e) {
+        if (e.touches.length === 1) {
+          isDragging = true;
+          startX = e.touches[0].clientX - currentX;
+          startY = e.touches[0].clientY - currentY;
+        }
+      });
+
+      img.addEventListener("touchmove", function (e) {
+        if (e.touches.length === 1 && isDragging) {
+          currentX = (e.touches[0].clientX - startX) * 0.5;
+          currentY = (e.touches[0].clientY - startY) * 0.5;
+          img.style.transform = `scale(${currentScale}) translate(${currentX}px, ${currentY}px)`;
+          e.preventDefault();
+        }
+      });
+
+      img.addEventListener("touchend", function (e) {
+        if (e.touches.length === 0) {
+          isDragging = false;
+        }
+      });
     </script>
   </body>
 </html>
